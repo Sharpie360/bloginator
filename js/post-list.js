@@ -11,7 +11,7 @@ vm_postList = new Vue({
       } else {
         const text = post.content;
         // closing </h1> tag
-        const stringToMatch = '(<\\/h1>)';
+        const stringToMatch = '(<\\/h2>)';
         // searches post content for closing h1 tag
         const regex = new RegExp(stringToMatch, ["i"]);
         const match = text.split(regex)
@@ -30,7 +30,16 @@ vm_postList = new Vue({
       }
     },
     setContent: function(post){
+
+      vm.$data.title = post.title
+      vm.$data.date = setLocalDate(post.published)
       vm.$data.body = post.content
     }
   }
 })
+
+function setLocalDate(date){
+  newDate = new Date(date);
+  cleanedDate = newDate.toDateString()
+  return cleanedDate
+}

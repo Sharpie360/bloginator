@@ -1,6 +1,8 @@
 const vm = new Vue({
   el: '#content',
   data: {
-    body: ""
+    title: '',
+    date: '',
+    body: ''
   }
 })
