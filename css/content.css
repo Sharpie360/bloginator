@@ -1,3 +1,21 @@
 #content {
-  padding: 1rem;
+  padding: 1rem 2rem 1rem 1rem;
+}
+
+#cont-header {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ch-title {}
+
+.ch-date {
+  padding-right: 1rem;
+}
+
+h2.sub-title {
+  font-weight: 300;
+  margin-left: 1rem;
 }
