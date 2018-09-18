@@ -7,6 +7,11 @@
   <title>Bloginator V1</title>
   <link rel="stylesheet" href="./css/main.css">
   <link rel="stylesheet" href="./css/action-bar.css">
+  <link rel="stylesheet" href="./css/sidebar.css">
+  <link rel="stylesheet" href="./css/content.css">
+
+  <script src="./js/vue/vue.js"></script>
+
 </head>
 <body>
   <div id="app">
@@ -29,11 +34,13 @@
       </ul>
     </div>
 
-    <div id="content">
-      blog content will go here
+    <div id="content" class="content" v-html="body">
+      {{ body }}
     </div>
   </div>
 
   <script src="./js/get-posts.js"></script>
+  <script src="./js/post-list.js"></script>
+  <script src="./js/post-content.js"></script>
 </body>
 </html>
