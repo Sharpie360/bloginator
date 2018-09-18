@@ -1,17 +1,33 @@
 
-const API_KEY = 'AIzaSyA7PU1092yJ27gf9lgj_iOD5cpdn7K9Y64';
+const btn_getPosts = document.getElementById('get-posts')
 
-const userId = '16179518082151825482'
-
-const blogId = '1909841251606783944'
-
-
-const blog = document.getElementById('blog')
+const blogPostDisplay = document.getElementById('content')
+const postList = document.getElementById('post-list')
 
 const posts = []
+
 fetch(`https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts?key=${API_KEY}`)
 .then(response => response.json())
-.then(data => posts.push(...data.items));
+.then(data => {
+  posts.unshift(...data.items)
+  loadPosts();
+});
+
+function loadPosts(){
+  vm.$data.body = posts[0].content;
+  let list = '';
+  posts.forEach(post => {
+    getSubtitle(post.content)
+    list += `
+    <li class="post-list-item">
+      <a href="#" data-postID="${post.id}" class="pl-link">
+        <h3 class="pl-item-title">${post.title}</h3>
+        <span class="pl-item-subtitle">${subtitle}</span>
+      </a>
+    </li>`
+  })
+  postList.innerHTML = list;
+}
 
 
 function getSubtitle(post){
@@ -41,4 +57,4 @@ function getSubtitle(post){
 
 
 
-setTimeout(() => {getSubtitle(posts[0].content)}, 500)
+// setTimeout(() => {getSubtitle(posts[0].content)}, 500)
