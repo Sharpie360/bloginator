@@ -9,3 +9,9 @@
 - fetches blog info from blogger
 
 # action bar css started
+
+# added vue js as content display
+# added vue js for post list
+- removed now un-needed vanilla js
+
+# cut lines of code in half or more with VUE JS!!!
