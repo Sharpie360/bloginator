@@ -39,8 +39,12 @@
       </ul>
     </div>
 
-    <div id="content" class="content" v-html="body">
-      {{ body }}
+    <div id="content" class="content">
+      <div id="cont-header">
+        <h1 class="ch-title">{{ title }}</h1>
+        <h3 class="ch-date">{{ date }}</h3>
+      </div>
+      <div v-html="body"></div>
     </div>
   </div>
 
