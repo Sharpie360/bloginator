@@ -29,8 +29,13 @@
     </div>
 
     <div id="sidebar" class="sidebar">
-      <ul id="post-list">
-        <li>blog post 1</li>
+      <ul id="post-list" v-for="post in posts">
+        <li class="post-list-item">
+            <a @click="setContent(post)" href="#" :data-postid="post.id" class="pl-link">
+              <h3 class="pl-item-title">{{post.title}}</h3>
+              <span class="pl-item-subtitle">{{getSubs(post)}}</span>
+            </a>
+          </li>
       </ul>
     </div>
 
@@ -39,6 +44,7 @@
     </div>
   </div>
 
+  <script src="./js/userdata.js"></script>
   <script src="./js/get-posts.js"></script>
   <script src="./js/post-list.js"></script>
   <script src="./js/post-content.js"></script>
