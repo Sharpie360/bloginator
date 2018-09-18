@@ -1,0 +1,20 @@
+#sidebar {
+  padding: 1rem;
+  font-size: .8rem
+}
+
+#post-list {
+  list-style: none;
+}
+
+#post-list li {
+  margin-bottom: 1rem;
+}
+
+.pl-item-title {
+  
+}
+
+.pl-item-subtitle {
+  font-size:  .7rem;
+}

@@ -20,6 +20,12 @@ html {
 body {
   height: 100vh;
   width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(114, 114, 114);
 }
 
 #app {
@@ -35,6 +41,8 @@ body {
 
 #header {
   grid-column: 1 / 5;
+  font-size: 2rem;
+  padding-left: 1rem;
 }
 
 #action {
