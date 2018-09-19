@@ -14,7 +14,7 @@
 
 html {
   font-size: var(--base-font-size);
-  font-family: 'Saira Semi Condensed'
+  font-family: 'Saira Semi Condensed', sans-serif;
 }
 
 body {
