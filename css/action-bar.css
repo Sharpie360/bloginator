@@ -6,3 +6,15 @@
   align-items: center;
   justify-content: space-between
 }
+
+.action-btns {
+  display: flex;
+  width: 20rem; /* 480px */
+  justify-content: space-evenly;
+}
+
+.action-btns button {
+  padding: .25rem .5rem;
+  width: 6rem
+}
+
