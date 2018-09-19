@@ -63,8 +63,9 @@
           <label for="body">Body: </label>
           <textarea name="body" id="new-post-body" class="new-post-body" v-model="body"></textarea>
         </div>
-        <button>save draft</button>
-        <button>commit post</button>
+        <button id="new-post-save" @click="saveDraft()">save draft</button>
+        <button id="new-post-commit" @click="commitPost()">commit post</button>
+        <button id="new-post-cancel" @click="cancelPost()">cancel post</button>
       </div>
 
     </div>
