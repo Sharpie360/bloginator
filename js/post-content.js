@@ -1,8 +1,20 @@
-const vm = new Vue({
-  el: '#content',
+
+const vm_postDisplay = new Vue({
+  el: '#view-post',
   data: {
     title: '',
     date: '',
-    body: ''
+    body: '',
+    createMode: true
+  }
+})
+
+const vm_postCreate = new Vue({
+  el: '#create-post',
+  data: {
+    title: '',
+    subtitle: '',
+    body: '',
+    createMode: vm_postDisplay.$data.createMode
   }
 })

@@ -41,12 +41,32 @@
     </div>
 
     <div id="content" class="content">
-      <div id="cont-header">
-        <h1 class="ch-title">{{ title }}</h1>
-        <h3 class="ch-date">{{ date }}</h3>
+      <div id="view-post" v-show="!createMode">
+        <div id="cont-header">
+          <h1 class="ch-title">{{ title }}</h1>
+          <h3 class="ch-date">{{ date }}</h3>
+        </div>
+        <div v-html="body"></div>
       </div>
-      <div v-html="body"></div>
-     
+
+      <div id="create-post" v-show="createMode">
+        <h1>Create New Post</h1>
+        <div class="input-group">
+          <label for="title">Title: </label>
+          <input type="text" name="title" id="new-post-title" class="new-post-title" v-model="title">
+        </div>
+        <div class="input-group">
+          <label for="subtitle">Subtitle: </label>
+          <input type="text" name="subtitle" id="new-post-subtitle" class="new-post-subtitle" v-model="subtitle">
+        </div>
+        <div class="input-group">
+          <label for="body">Body: </label>
+          <textarea name="body" id="new-post-body" class="new-post-body" v-model="body"></textarea>
+        </div>
+        <button>save draft</button>
+        <button>commit post</button>
+      </div>
+
     </div>
   </div>
 
