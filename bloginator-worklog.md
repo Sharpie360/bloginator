@@ -15,3 +15,20 @@
 - removed now un-needed vanilla js
 
 # cut lines of code in half or more with VUE JS!!!
+
+================================
+### 9-18-18
+================================
+# Reworked most code to use Vuejs.
+
+# Components List
+- action bar
+- post-list
+- post-display
+- post-create
+
+# updated index.html, css, and js.
+- built new component for createPost
+- establishing very primitive state control
+
+# commit commit commit!!!
