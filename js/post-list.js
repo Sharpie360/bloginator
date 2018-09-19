@@ -30,10 +30,9 @@ vm_postList = new Vue({
       }
     },
     setContent: function(post){
-
-      vm.$data.title = post.title
-      vm.$data.date = setLocalDate(post.published)
-      vm.$data.body = post.content
+      vm_postDisplay.$data.title = post.title
+      vm_postDisplay.$data.date = setLocalDate(post.published)
+      vm_postDisplay.$data.body = post.content
     }
   }
 })
