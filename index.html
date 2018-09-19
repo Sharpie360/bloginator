@@ -22,9 +22,10 @@
 
     <div id="action" class="action-bar">
       <h4>What would you like to do?</h4>
-      <div class="action-controller">
-          <button id="get-posts">Grab My Posts</button>
-          <button id="new-post">Create New Post</button>
+      <div class="action-btns">
+        <button id="new-post">Create New Post</button>
+        <button id="edit-post">Edit Post</button>
+        <button id="delete-post">Delete Post</button>
       </div>
     </div>
 
@@ -45,6 +46,7 @@
         <h3 class="ch-date">{{ date }}</h3>
       </div>
       <div v-html="body"></div>
+     
     </div>
   </div>
 
