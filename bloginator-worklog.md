@@ -32,3 +32,15 @@
 - establishing very primitive state control
 
 # commit commit commit!!!
+
+
+================================
+### 9-19-18
+================================
+
+# edit btn disable logic added to html and content component
+- Vue $ref keyword added
+
+# started commitPost function
+- using temp authorized key
+- might try headless wp approach

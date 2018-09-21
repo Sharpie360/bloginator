@@ -24,7 +24,7 @@
       <h4>What would you like to do?</h4>
       <div class="action-btns">
         <button id="new-post" @click="createNewPost()">Create New Post</button>
-        <button id="edit-post" class="editBtn" @click="editPost(getId())">Edit Post</button>
+        <button id="edit-post" @click="editPost(getId())" ref="editBtn">Edit Post</button>
         <button id="delete-post">Delete Post</button>
       </div>
     </div>
@@ -77,5 +77,6 @@
   <script src="./js/post-list.js"></script>
   <script src="./js/post-content.js"></script>
   <script src="./js/action.js"></script>
+  <script src="./js/commit-post.js"></script>
 </body>
 </html>

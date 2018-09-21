@@ -37,7 +37,7 @@ const vm_postCreate = new Vue({
         title: this.title,
         content: hackifyPostBody(this.subtitle, this.body)
       }
-      console.log(postData)
+      // console.log(postData)
       commitPostToBlog(postData)
     },
     cancelPost: function(){
@@ -46,7 +46,7 @@ const vm_postCreate = new Vue({
         vm_postDisplay.$data.viewMode = true
         vm_postCreate.$data.createMode = false
         vm_postCreate.$data.editMode = false
-        document.getElementById('edit-post').disabled = false;
+        vm_actionBar.$refs.editBtn.disabled = false
 
         console.log('leaving state: createMode |>>>| entering state: displayMode')
       } else {

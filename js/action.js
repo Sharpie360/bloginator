@@ -1,7 +1,3 @@
-const createBtn = document.getElementById('new-post')
-const editBtn = document.getElementById('edit-post')
-const deleteBtn = document.getElementById('delete-post')
-
 
 const vm_actionBar = new Vue({
   el: '#action',
@@ -12,7 +8,7 @@ const vm_actionBar = new Vue({
       vm_postCreate.$data.createMode = true
       vm_postCreate.$data.editMode = false
 
-      document.getElementById('edit-post').disabled = true;
+      this.$refs.editBtn.disabled = true;
 
       vm_postCreate.$data.title = ''
       vm_postCreate.$data.subtitle = ''
