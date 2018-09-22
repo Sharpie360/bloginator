@@ -1,15 +1,30 @@
 
+// Commits a new post to Blogger database
+// Uses GAPI client and Oauth2 for authorization
+
+
+
 function commitPostToBlog(postData){
-  const request = new Request(`https://www.googleapis.com/blogger/v3/blogs/${blogId}/posts`, {
-    method: 'POST',
-    headers: new Headers({
-      // temp access key - now invalid
-      'Authorization': 'Bearer ya29.GlseBkURyQHFiZ1RFo2oA6Deo7q4AK4_SNbxMtsrgKxEktsteL2w3GC-8EprhkQ33vSuKuUwxcOSPqMssMW-Hp6fvT_ZzePFpKkrIq18DeBMUG8j_Wn1NyEvjoi7',
-      'Content-Type':'application/json'
-    }),
-    body: JSON.stringify(postData)
+  if(postData.title == ''){
+    console.log('Post must included a Title')
+    return
+  }
+  else if (postData.content == ''){
+    console.log('Post body cannot be empty')
+    return
+  }
+  console.log('committing post to server... standby...')
+  gapi.client.blogger.posts.insert({
+    'blogId': '1909841251606783944',
+    'title': postData.title,
+    'content': postData.content
   })
-  fetch(request)
-  .then(response => response.json())
-  .then(data => console.log(data))
+  .then(function(response) {
+    console.log('Post has been commited successfully!')
+    responseInfo = JSON.stringify(response)
+    //console.log(responseInfo)
+  }, function(reason) {
+    console.log('Error' + reason);
+  })
+  getPosts();
 }

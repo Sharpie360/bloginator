@@ -1,7 +1,9 @@
 
 const vm_actionBar = new Vue({
   el: '#action',
-  data: {},
+  data: {
+    isSignedIn: false
+  },
   methods: {
     createNewPost: function(){
       vm_postDisplay.$data.viewMode = false
