@@ -9,8 +9,8 @@
 
 .action-btns {
   display: flex;
-  width: 20rem; /* 480px */
-  justify-content: space-evenly;
+  width: 25rem; 
+  justify-content: flex-end;
 }
 
 .action-btns button {
