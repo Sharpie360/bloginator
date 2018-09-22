@@ -11,6 +11,10 @@
   <link rel="stylesheet" href="./css/content.css">
 
   <script src="./js/vue/vue.js"></script>
+  <script async defer src="https://apis.google.com/js/api.js"
+  onload="this.onload=function(){};handleClientLoad()"
+  onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
 
 </head>
 <body>
@@ -23,9 +27,15 @@
     <div id="action" class="action-bar">
       <h4>What would you like to do?</h4>
       <div class="action-btns">
-        <button id="new-post" @click="createNewPost()">Create New Post</button>
-        <button id="edit-post" @click="editPost(getId())" ref="editBtn">Edit Post</button>
-        <button id="delete-post">Delete Post</button>
+        <button id="signin-button" onclick="handleSignInClick()" v-show="!isSignedIn">Sign In</button>
+
+        <div class="logged-in-btns" v-show="isSignedIn">
+          <button id="new-post" @click="createNewPost()">Create New Post</button>
+          <button id="edit-post" @click="editPost(getId())" ref="editBtn">Edit Post</button>
+          <button id="delete-post" ref="deleteBtn">Delete Post</button>
+          <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
+        </div>
+
       </div>
     </div>
 
@@ -71,12 +81,72 @@
 
     </div>
   </div>
-
   <script src="./js/userdata.js"></script>
   <script src="./js/get-posts.js"></script>
   <script src="./js/post-list.js"></script>
   <script src="./js/post-content.js"></script>
   <script src="./js/action.js"></script>
   <script src="./js/commit-post.js"></script>
+  <script type="text/javascript">
+    function handleClientLoad() {
+      // Loads the client library and the auth2 library together for efficiency.
+      // Loading the auth2 library is optional here since `gapi.client.init` function will load
+      // it if not already loaded. Loading it upfront can save one network request.
+      gapi.load('client:auth2', initClient);
+    }
+
+    function initClient() {
+      // Initialize the client with API key and People API, and initialize OAuth with an
+      // OAuth 2.0 client ID and scopes (space delimited string) to request access.
+      gapi.client.init({
+          apiKey: API_KEY,
+          discoveryDocs: ['https://www.googleapis.com/discovery/v1/apis/blogger/v3/rest'],
+          clientId: oauth2ClientId,
+          scope: 'https://www.googleapis.com/auth/blogger'
+      }).then(function () {
+        // Listen for sign-in state changes.
+        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+
+        // Handle the initial sign-in state.
+        updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+      });
+    }
+
+    function updateSigninStatus(isSignedIn) {
+      // When signin status changes, this function is called.
+      // If the signin status is changed to signedIn, we make an API call.
+      if (isSignedIn) {
+        makeApiCall();
+        vm_actionBar.$data.isSignedIn = true;
+
+      }
+    }
+
+    function handleSignInClick(event) {
+      // Ideally the button should only show up after gapi.client.init finishes, so that this
+      // handler won't be called before OAuth is initialized.
+      gapi.auth2.getAuthInstance().signIn();
+    }
+
+    function handleSignOutClick(event) {
+      gapi.auth2.getAuthInstance().signOut();
+      vm_actionBar.$data.isSignedIn = false;
+    }
+
+    function makeApiCall() {
+      // Make an API call to the Blogger API, and log the blog name.
+      gapi.client.blogger.blogUserInfos.get({
+        'blogId': blogId,
+        'userId': userId
+      }).then(function(response) {
+        console.log('Hello ' + response.result.name)
+        test = JSON.stringify(response)
+        console.log(test)
+      }, function(reason) {
+        console.log('Error');
+      })
+    }
+  </script>
+
 </body>
 </html>
