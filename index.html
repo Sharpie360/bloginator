@@ -11,10 +11,7 @@
   <link rel="stylesheet" href="./css/content.css">
 
   <script src="./js/vue/vue.js"></script>
-  <script async defer src="https://apis.google.com/js/api.js"
-  onload="this.onload=function(){};handleClientLoad()"
-  onreadystatechange="if (this.readyState === 'complete') this.onload()">
-</script>
+  
 
 </head>
 <body>
@@ -40,7 +37,8 @@
     </div>
 
     <div id="sidebar" class="sidebar">
-      <ul id="post-list" v-for="post in posts">
+      <h2>My Blog Posts</h2>
+      <ul id="post-list" v-for="post in posts" v-show="isSignedIn">
         <li class="post-list-item">
             <a @click="setContent(post)" href="#" :data-postid="post.id" class="pl-link">
               <h3 class="pl-item-title">{{post.title}}</h3>
@@ -75,6 +73,7 @@
           <textarea name="body" id="new-post-body" class="new-post-body" v-model="body"></textarea>
         </div>
         <button id="new-post-save" @click="saveDraft()">save draft</button>
+        <button id="load-saved-draft" @click="loadDraft()"></button>
         <button id="new-post-commit" @click="commitPost()">commit post</button>
         <button id="new-post-cancel" @click="cancelPost()">cancel post</button>
       </div>
@@ -116,8 +115,9 @@
       // When signin status changes, this function is called.
       // If the signin status is changed to signedIn, we make an API call.
       if (isSignedIn) {
-        makeApiCall();
-        vm_actionBar.$data.isSignedIn = true;
+        getPosts()
+        vm_actionBar.$data.isSignedIn = true
+        vm_postList.$data.isSignedIn = true
 
       }
     }
@@ -125,12 +125,16 @@
     function handleSignInClick(event) {
       // Ideally the button should only show up after gapi.client.init finishes, so that this
       // handler won't be called before OAuth is initialized.
-      gapi.auth2.getAuthInstance().signIn();
+      gapi.auth2.getAuthInstance().signIn()
     }
 
     function handleSignOutClick(event) {
-      gapi.auth2.getAuthInstance().signOut();
-      vm_actionBar.$data.isSignedIn = false;
+      gapi.auth2.getAuthInstance().signOut()
+      vm_actionBar.$data.isSignedIn = false
+      vm_postList.$data.isSignedIn = false
+      vm_postDisplay.$data.title = 'Welcome to Bloginator'
+      vm_postDisplay.$data.body = 'Please sign in to continue...'
+      posts = [] // empty the array of posts on sign-out
     }
 
     function makeApiCall() {
@@ -146,6 +150,10 @@
         console.log('Error');
       })
     }
+  </script>
+    <script async defer src="https://apis.google.com/js/api.js"
+    onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
   </script>
 
 </body>

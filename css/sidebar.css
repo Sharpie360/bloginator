@@ -3,6 +3,10 @@
   font-size: .8rem
 }
 
+#sidebar h2 {
+  font-weight: 400;
+}
+
 #post-list {
   list-style: none;
 }
@@ -18,3 +22,7 @@
 .pl-item-subtitle {
   font-size:  .7rem;
 }
+
+
+
+/* running a trial screencast live coding some vue stuff. */
