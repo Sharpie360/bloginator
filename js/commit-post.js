@@ -26,5 +26,6 @@ function commitPostToBlog(postData){
   }, function(reason) {
     console.log('Error' + reason);
   })
+  posts = [] // retrieve updated list of posts
   getPosts();
 }
