@@ -2,7 +2,7 @@
 const vm_actionBar = new Vue({
   el: '#action',
   data: {
-    isSignedIn: false
+    isSignedIn: false // refactor to global state in V2
   },
   methods: {
     createNewPost: function(){
