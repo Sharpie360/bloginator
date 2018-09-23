@@ -55,6 +55,10 @@ const vm_postCreate = new Vue({
     },
     commitPost: function(){
       // check that all fields are filled out
+      if(!this.title && !this.subtitle && !this.body){
+        alert('Must have all fields fille out to commit post!')
+        return
+      }
       postData = {
         title: this.title,
         content: hackifyPostBody(this.subtitle, this.body)
