@@ -89,3 +89,11 @@
 ### redeclared posts with let keyword
 - makes mutable, but needed
 - able to empty and fill when need be
+
+================================
+## 9-23-18
+================================
+
+### finished save/load draft
+- validation and confirmation added
+- createPost btns all working
