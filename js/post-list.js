@@ -2,7 +2,8 @@
 vm_postList = new Vue({
   el: '#sidebar',
   data: {
-    posts: posts
+    posts: posts,
+    isSignedIn: false, // refactor to global state in V2
   },
   methods: {
     getSubs: function(post){
