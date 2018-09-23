@@ -75,3 +75,17 @@
 - started on error message
 
 ### signed-in / signed-out state management added
+- clear display and list when logged out
+
+### MODES: view, create, edit
+- viewMode: for viewing posts in content display
+- createMode: for writing a new post
+- editMode: for editing an existing post, same VM as createMode
+
+### postContent cmpt
+- added loadDraft btn
+- working with LS to hold post draft - might change.
+
+### redeclared posts with let keyword
+- makes mutable, but needed
+- able to empty and fill when need be
