@@ -38,8 +38,8 @@
 
     <div id="sidebar" class="sidebar">
       <h2>My Blog Posts</h2>
-      <ul id="post-list" v-for="post in posts" v-show="isSignedIn">
-        <li class="post-list-item">
+      <ul id="post-list"v-show="isSignedIn">
+        <li class="post-list-item" v-for="post in posts" >
             <a @click="setContent(post)" href="#" :data-postid="post.id" class="pl-link">
               <h3 class="pl-item-title">{{post.title}}</h3>
               <span class="pl-item-subtitle">{{getSubs(post)}}</span>
@@ -135,7 +135,7 @@
       vm_postList.$data.isSignedIn = false
       vm_postDisplay.$data.title = 'Welcome to Bloginator'
       vm_postDisplay.$data.body = 'Please sign in to continue...'
-      posts = [] // empty the array of posts on sign-out
+      vm_postList.$data.posts = [] // empty the array of posts on sign-out
     }
 
     function makeApiCall() {

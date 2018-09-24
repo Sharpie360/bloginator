@@ -76,10 +76,10 @@ const vm_postCreate = new Vue({
       this.createMode = false
       this.editMode = false
 
-      vm_postList.$data.posts = [] // reset array / refactoring in v2
-      getPosts()
+      
       vm_postDisplay.viewMode = true
       vm_actionBar.$refs.editBtn.disabled = false
+      vm_actionBar.$refs.deleteBtn.disabled = false
     },
     cancelPost: function(){
       if(confirm('Are you sure you want to cancel?')){
@@ -88,6 +88,7 @@ const vm_postCreate = new Vue({
         this.createMode = false
         this.editMode = false
         vm_actionBar.$refs.editBtn.disabled = false
+        vm_actionBar.$refs.deleteBtn.disabled = false
 
         console.log('leaving state: createMode |>>>| entering state: displayMode')
       } else {

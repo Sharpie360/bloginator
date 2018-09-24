@@ -23,6 +23,8 @@ function commitPostToBlog(postData){
     console.log('Post has been commited successfully!')
     responseInfo = JSON.stringify(response)
     //console.log(responseInfo)
+    vm_postList.$data.posts = [] // reset array / refactoring in v2
+    getPosts()
   }, function(reason) {
     console.log('Error' + reason);
   })

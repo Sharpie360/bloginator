@@ -10,6 +10,8 @@ function deletePostFromBlog(postId, postTitle) {
     .then(function(response) {
       console.log(`Post "${postTitle}" has successfully been deleted!`)
       responseInfo = JSON.stringify(response)
+      vm_postList.$data.posts = []
+      getPosts()
     }, function(reason){
       console.log('Error ' + reason)
     })

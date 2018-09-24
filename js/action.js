@@ -10,7 +10,9 @@ const vm_actionBar = new Vue({
       vm_postCreate.$data.createMode = true
       vm_postCreate.$data.editMode = false
 
-      this.$refs.editBtn.disabled = true;
+      this.$refs.editBtn.disabled = true
+      vm_actionBar.$refs.deleteBtn.disabled = true
+
 
       vm_postCreate.$data.title = ''
       vm_postCreate.$data.subtitle = ''
@@ -34,8 +36,6 @@ const vm_actionBar = new Vue({
     },
     deletePost: function(postId, postTitle){
       deletePostFromBlog(postId, postTitle)
-      posts = []
-      getPosts()
     }
   }
 })
