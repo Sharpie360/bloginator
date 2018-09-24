@@ -111,3 +111,8 @@
 - if successful, update state to viewMode
 - grab updated blog
 - editBtn enabled
+- working on this - see branch Refactor01
+
+### deletePost
+- function running and successful
+- same re-rendering after action issue
