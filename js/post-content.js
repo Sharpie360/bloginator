@@ -74,9 +74,9 @@ const vm_postCreate = new Vue({
       // console.log(postData)
       commitPostToBlog(postData)
       this.createMode = false
-      this.createMode = false
+      this.editMode = false
 
-      posts = [] // reset array / refactoring in v2
+      vm_postList.$data.posts = [] // reset array / refactoring in v2
       getPosts()
       vm_postDisplay.viewMode = true
       vm_actionBar.$refs.editBtn.disabled = false

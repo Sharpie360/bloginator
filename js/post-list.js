@@ -2,7 +2,7 @@
 vm_postList = new Vue({
   el: '#sidebar',
   data: {
-    posts: posts,
+    posts: [],
     isSignedIn: false, // refactor to global state in V2
   },
   methods: {

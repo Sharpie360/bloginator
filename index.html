@@ -29,7 +29,7 @@
         <div class="logged-in-btns" v-show="isSignedIn">
           <button id="new-post" @click="createNewPost()">Create New Post</button>
           <button id="edit-post" @click="editPost(getId())" ref="editBtn">Edit Post</button>
-          <button id="delete-post" ref="deleteBtn">Delete Post</button>
+          <button id="delete-post" ref="deleteBtn" @click="deletePost(getId(), getTitle())">Delete Post</button>
           <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
         </div>
 
@@ -86,6 +86,7 @@
   <script src="./js/post-content.js"></script>
   <script src="./js/action.js"></script>
   <script src="./js/commit-post.js"></script>
+  <script src="./js/delete-post.js"></script>
   <script type="text/javascript">
     function handleClientLoad() {
       // Loads the client library and the auth2 library together for efficiency.

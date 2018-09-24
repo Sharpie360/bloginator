@@ -29,11 +29,13 @@ const vm_actionBar = new Vue({
     getId: function(){
       return vm_postDisplay.$data.id
     },
-    deletePost: function(post){
-      console.log(post, 'feature coming soon!')
-      if(vm_postCreate.createMode === true){
-
-      }
+    getTitle: function(){
+      return vm_postDisplay.$data.title
+    },
+    deletePost: function(postId, postTitle){
+      deletePostFromBlog(postId, postTitle)
+      posts = []
+      getPosts()
     }
   }
 })
