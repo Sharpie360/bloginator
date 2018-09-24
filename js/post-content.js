@@ -72,7 +72,7 @@ const vm_postCreate = new Vue({
         content: hackifyPostBody(this.subtitle, this.body)
       }
       // console.log(postData)
-      //commitPostToBlog(postData)
+      commitPostToBlog(postData)
       this.createMode = false
       this.createMode = false
 

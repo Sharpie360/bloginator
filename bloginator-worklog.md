@@ -97,3 +97,17 @@
 ### finished save/load draft
 - validation and confirmation added
 - createPost btns all working
+- changed if eval logic for input field value check
+- - "===''" > !not operator
+
+### adding validation to commitPost
+
+### loadDraft/cancelPost changes
+- changed occurences of 'vm_createPost' to 'this'
+- added check for draft in LS
+- removed savedDraft boolean
+
+### commitPost after-action
+- if successful, update state to viewMode
+- grab updated blog
+- editBtn enabled

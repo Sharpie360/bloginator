@@ -24,7 +24,7 @@ const vm_actionBar = new Vue({
       vm_postCreate.$data.editMode = true
       
       vm_postCreate.$data.title = vm_postDisplay.title
-      vm_postCreate.$data.body = vm_postDisplay.body
+      vm_postCreate.$data.body = vm_postDisplay.body     
     },
     getId: function(){
       return vm_postDisplay.$data.id
