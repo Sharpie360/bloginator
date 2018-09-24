@@ -111,3 +111,16 @@
 - if successful, update state to viewMode
 - grab updated blog
 - editBtn enabled
+
+### deletePost
+- function running and successful
+- same re-rendering after action issue
+
+================================
+## 9-23-18
+================================
+
+### Post-List
+- re-renders with updated data after actions
+- - commitPost, deletePost
+#### finished delete feature
