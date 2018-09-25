@@ -117,10 +117,14 @@
 - same re-rendering after action issue
 
 ================================
-## 9-23-18
+## 9-24-18
 ================================
 
 ### Post-List
 - re-renders with updated data after actions
 - - commitPost, deletePost
 #### finished delete feature
+
+### editPost 
+- got subtitle extracted properly into subtitle prop from content
+- got body parsed from content 
