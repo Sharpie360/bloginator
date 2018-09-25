@@ -128,3 +128,7 @@
 ### editPost 
 - got subtitle extracted properly into subtitle prop from content
 - got body parsed from content 
+
+### Post-List
+- getSubs refactored to call global extractSubtitle fn
+
