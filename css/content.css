@@ -2,6 +2,8 @@
   padding: 1rem 2rem 1rem 1rem;
 }
 
+
+/* VIEW MODE COMPONENT */
 #cont-header {
   display: flex;
   flex: 1;
@@ -28,11 +30,31 @@ h2.sub-title {
 
 
 
-/* #create-post .input-group {
-} */
+/* CREATE/EDIT MODE COMPONENT */
+
+#cP-eP-head {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+#user-message-display {
+  padding: .25rem .5rem;
+  align-self: center;
+  border-radius: .1rem;
+}
+
+.alert-success {
+  background-color: rgb(205, 255, 213);
+}
+.alert-failed {
+  background-color: rgb(255, 210, 210);
+}
+
 #create-post h1 {
   font-weight: 400;
 }
+
+
 #create-post label {
   display: block;
   font-size: 1.5rem
@@ -54,5 +76,5 @@ h2.sub-title {
 
 #create-post button {
   padding: .25rem .5rem;
-  width: 6rem
+  width: 6rem;
 }

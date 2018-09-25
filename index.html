@@ -58,8 +58,15 @@
       </div>
 
       <div id="create-post" v-if="createMode || editMode">
-        <h1 v-if="createMode">Create New Post</h1>
-        <h1 v-if="editMode">Edit Post</h1>
+        <div id="cP-eP-head">
+          <div id="cP-eP-headers">
+            <h1 v-if="createMode">Create New Post</h1>
+            <h1 v-if="editMode">Edit Post</h1>
+          </div>
+          <div id="user-message-display" class="alert-failed">
+            <p>this will be the message display for the user </p>
+          </div>
+        </div>
         <div class="input-group">
           <label for="title">Title: </label>
           <input type="text" name="title" id="new-post-title" class="new-post-title" v-model="title">
@@ -74,8 +81,9 @@
         </div>
         <button id="new-post-save" @click="saveDraft()">save draft</button>
         <button id="load-saved-draft" @click="loadDraft()">load draft</button>
-        <button id="new-post-commit" @click="commitPost()">commit post</button>
-        <button id="new-post-cancel" @click="cancelPost()">cancel post</button>
+        <button id="new-post-commit" @click="commitPost()" v-show="createMode">commit post</button>
+        <button id="update-post" @click="updatePost()" v-show="editMode">update post</button>
+        <button id="new-post-cancel" @click="cancelPost()">cancel</button>
       </div>
 
     </div>
@@ -86,6 +94,7 @@
   <script src="./js/post-content.js"></script>
   <script src="./js/action.js"></script>
   <script src="./js/commit-post.js"></script>
+  <script src="./js/update-post.js"></script>
   <script src="./js/delete-post.js"></script>
   <script type="text/javascript">
     function handleClientLoad() {
