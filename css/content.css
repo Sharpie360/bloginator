@@ -43,11 +43,14 @@ h2.sub-title {
   border-radius: .1rem;
 }
 
+.alert-error {
+  background-color: rgb(255, 210, 210);
+}
+.alert-warning {
+  background-color: rgb(255, 245, 210);
+}
 .alert-success {
   background-color: rgb(205, 255, 213);
-}
-.alert-failed {
-  background-color: rgb(255, 210, 210);
 }
 
 #create-post h1 {
