@@ -6,11 +6,11 @@
 
 function commitPostToBlog(postData){
   if(postData.title == ''){
-    console.log('Post must included a Title')
+    setMessage('warning', "Your post title cannot be empty")
     return
   }
   else if (postData.content == ''){
-    console.log('Post body cannot be empty')
+    setMessage('warning', "Your post body cannot be empty")
     return
   }
   console.log('committing post to server... standby...')
@@ -20,12 +20,12 @@ function commitPostToBlog(postData){
     'content': postData.content
   })
   .then(function(response) {
-    console.log('Post has been commited successfully!')
     responseInfo = JSON.stringify(response)
     //console.log(responseInfo)
     vm_postList.$data.posts = [] // reset array / refactoring in v2
     getPosts()
   }, function(reason) {
+    setMessage('error', "Uh-oh.. It seems there was an error, please try again")
     console.log('Error' + reason);
   })
 }

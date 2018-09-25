@@ -8,6 +8,7 @@ function getPosts(){
   .then(data => {
     console.log(data)
     vm_postList.$data.posts.unshift(...data.items)
+    document.getElementById('post-list').style.opacity = 1;
     setContentOnAction()
   });
 }

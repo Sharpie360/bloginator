@@ -19,8 +19,7 @@ const vm_actionBar = new Vue({
       vm_postCreate.$data.body = ''
 
     },
-    editPost: function(post){
-      console.log(post, 'feature coming soon!')
+    editPost: function(){
       vm_postDisplay.$data.viewMode = false
       vm_postCreate.$data.createMode = false
       vm_postCreate.$data.editMode = true

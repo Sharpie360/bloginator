@@ -10,8 +10,10 @@ function pushUpdateToBlog(postData){
 
   }).then(function(response){
     responseInfo = JSON.stringify(response)
-    console.log('Your post has been successfully updated!')
+    vm_postList.$data.posts = [] // reset array / refactoring in v2
+    getPosts()
   }, function(reason){
+    setMessage('error', "Uh-oh.. It seems there was an error, please try again")
     console.log('There\'s been an error, please try again.. ' + reason)
   })
 }
