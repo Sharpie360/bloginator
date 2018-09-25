@@ -132,3 +132,10 @@
 ### Post-List
 - getSubs refactored to call global extractSubtitle fn
 
+### pushUpdateToBlog fn [updatePost]
+- patch call with gapi
+- called from updateBtn
+- working! :)
+
+### updatePost
+- display messsage to user, wait (1) second then go to viewMode if needed
