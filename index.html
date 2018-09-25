@@ -63,8 +63,8 @@
             <h1 v-if="createMode">Create New Post</h1>
             <h1 v-if="editMode">Edit Post</h1>
           </div>
-          <div id="user-message-display" class="alert-failed">
-            <p>this will be the message display for the user </p>
+          <div id="user-message-display" v-show="displayUserMsg">
+            <p id="message-text"></p>
           </div>
         </div>
         <div class="input-group">
@@ -93,6 +93,7 @@
   <script src="./js/post-list.js"></script>
   <script src="./js/post-content.js"></script>
   <script src="./js/action.js"></script>
+  <script src="./js/user-msg.js"></script>
   <script src="./js/commit-post.js"></script>
   <script src="./js/update-post.js"></script>
   <script src="./js/delete-post.js"></script>
