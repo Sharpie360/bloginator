@@ -14,6 +14,7 @@ const vm_postDisplay = new Vue({
 const vm_postCreate = new Vue({
   el: '#create-post',
   data: {
+    id: '',
     title: '',
     subtitle: '',
     body: '',
@@ -76,10 +77,21 @@ const vm_postCreate = new Vue({
       this.createMode = false
       this.editMode = false
 
-      
       vm_postDisplay.viewMode = true
       vm_actionBar.$refs.editBtn.disabled = false
       vm_actionBar.$refs.deleteBtn.disabled = false
+    },
+    updatePost: function(id){
+      if(!this.title && !this.subtitle && !this.body){
+        alert('Must have all fields filled out to commit post!')
+        return
+      }
+      postData = {
+        postId: this.id,
+        title: this.title,
+        content: hackifyPostBody(this.subtitle, this.body)
+      }
+      pushUpdateToBlog(postData)
     },
     cancelPost: function(){
       if(confirm('Are you sure you want to cancel?')){
