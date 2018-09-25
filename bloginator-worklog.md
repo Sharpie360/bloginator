@@ -139,3 +139,22 @@
 
 ### updatePost
 - display messsage to user, wait (1) second then go to viewMode if needed
+
+================================
+## 9-25-18
+================================
+
+### setMessage fn
+- sets display message for user for alerts and consolelogs
+- error : red
+- warning: yellow
+- success: green
+- takes 2 args. type -> for error, msg -> for user msg
+- uses setTimeouts for delay - user has time to read the message first,then change views or hide message div 
+
+### sidebar.css
+- added tranisiton opacity when loading post list after get request
+- smooth fade in vs jump load
+
+### all scripts
+- refactored alerts and consolelogs to use setMessage fn
