@@ -158,3 +158,15 @@
 
 ### all scripts
 - refactored alerts and consolelogs to use setMessage fn
+
+### Media Queries
+- added rules for header, action bar, and viewmode
+- added respective markup in index.html for mq's
+- - id's for elements
+
+### header.css
+- added for component like styles for header
+
+### actionBar text
+- changed wording and behavior on sign-in sign-out
+- button font changed to project font
