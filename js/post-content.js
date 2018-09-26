@@ -6,7 +6,7 @@ const vm_postDisplay = new Vue({
     title: 'Welcome to Bloginator',
     subtitle: '',
     date: '',
-    body: 'Please sign in to continue...',
+    body: 'built with the power of Vue.js and google\'s api client',
     viewMode: true // refactor to global state in V2
   }
 })
