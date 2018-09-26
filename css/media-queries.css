@@ -1,0 +1,87 @@
+
+@media screen and (max-width: 480px){
+  :root {
+    --base-font-size: 14px;
+    --base-margin: .5rem;
+  }
+
+  #app {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 7rem 4.25rem auto;
+  }
+  
+
+  .action-bar {
+    display: block;
+    padding: 0 .5rem;
+  }
+
+  #action-bar-text {
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .action-btns {
+    width: 100%; 
+  }
+
+  .action-btns button {
+    padding: 0rem .5rem;
+    width: 22%;
+    font-size: 12px;
+  }
+
+  #signin-button {
+    width: 30%;
+    margin: 0 auto;
+  }
+
+  .logged-in-btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly
+
+  }
+
+
+  #content {
+    padding: .5rem;
+  }
+
+  /* VIEW MODE COMPONENT */
+  #cont-header {
+    display: block;
+    position: relative;
+  }
+
+  .ch-title {
+    padding-top: 1.75rem;
+    padding-bottom: .5rem;
+    font-size: 1.7rem;
+    line-height: 1.5rem;
+  }
+
+  .ch-date {
+    padding-right: 0rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: .9rem;
+  }
+
+  h2.sub-title {
+    font-weight: 300;
+    font-size: 1.3rem;
+    margin-left: 0rem;
+    margin-bottom: -1rem;
+    text-transform: lowercase;
+  }
+
+  #cont-body {
+    font-size: 1rem
+  }
+
+}
