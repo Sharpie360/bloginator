@@ -28,6 +28,10 @@ a {
   color: rgb(32, 32, 32);
 }
 
+button {
+  font-family: 'Saira Semi Condensed', sans-serif;
+}
+
 #app {
   display: grid;
   height: 100%;
