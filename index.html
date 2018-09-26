@@ -6,9 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Bloginator V1</title>
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/header.css">
   <link rel="stylesheet" href="./css/action-bar.css">
   <link rel="stylesheet" href="./css/sidebar.css">
   <link rel="stylesheet" href="./css/content.css">
+  <link rel="stylesheet" href="./css/media-queries.css">
 
   <script src="./js/vue/vue.js"></script>
   
@@ -18,16 +20,16 @@
   <div id="app">
 
     <div id="header" class="header">
-      <h1>Bloginator</h1>
+      <h1 id="app-name">Bloginator v1</h1>
     </div>
 
     <div id="action" class="action-bar">
-      <h4>What would you like to do?</h4>
+      <h4 id="action-bar-text">Please sign in to continue...</h4>
       <div class="action-btns">
         <button id="signin-button" onclick="handleSignInClick()" v-show="!isSignedIn">Sign In</button>
 
         <div class="logged-in-btns" v-show="isSignedIn">
-          <button id="new-post" @click="createNewPost()">Create New Post</button>
+          <button id="new-post" @click="createNewPost()">New Post</button>
           <button id="edit-post" @click="editPost(getId())" ref="editBtn">Edit Post</button>
           <button id="delete-post" ref="deleteBtn" @click="deletePost(getId(), getTitle())">Delete Post</button>
           <button id="signout-button" onclick="handleSignOutClick()">Sign Out</button>
@@ -46,6 +48,7 @@
             </a>
           </li>
       </ul>
+      <p v-show="!isSignedIn">this is a blog inteface app I built in order to interact with my blog database hosted on blogger. This in turns updates the posts I am displaying on my website, which will load the most recent 5 posts. </p>
     </div>
 
     <div id="content" class="content">
@@ -54,7 +57,7 @@
           <h1 class="ch-title">{{ title }}</h1>
           <h3 class="ch-date">{{ date }}</h3>
         </div>
-        <div v-html="body"></div>
+        <div id="cont-body" v-html="body"></div>
       </div>
 
       <div id="create-post" v-if="createMode || editMode">
@@ -129,6 +132,7 @@
         getPosts()
         vm_actionBar.$data.isSignedIn = true
         vm_postList.$data.isSignedIn = true
+        document.getElementById('action-bar-text').innerText = "What would you like to do?"
 
       }
     }
@@ -140,12 +144,16 @@
     }
 
     function handleSignOutClick(event) {
-      gapi.auth2.getAuthInstance().signOut()
-      vm_actionBar.$data.isSignedIn = false
-      vm_postList.$data.isSignedIn = false
-      vm_postDisplay.$data.title = 'Welcome to Bloginator'
-      vm_postDisplay.$data.body = 'Please sign in to continue...'
-      vm_postList.$data.posts = [] // empty the array of posts on sign-out
+      if(confirm('Are you sure you want to log out?')){
+        gapi.auth2.getAuthInstance().signOut()
+        vm_actionBar.$data.isSignedIn = false
+        vm_postList.$data.isSignedIn = false
+        vm_postDisplay.$data.title = 'Welcome to Bloginator'
+        vm_postDisplay.$data.body = 'built with the power of Vue.js and google\'s api client'
+        vm_postList.$data.posts = [] // empty the array of posts on sign-out
+      } else {
+        return
+      }
     }
 
     function makeApiCall() {
