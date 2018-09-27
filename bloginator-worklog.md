@@ -170,3 +170,14 @@
 ### actionBar text
 - changed wording and behavior on sign-in sign-out
 - button font changed to project font
+
+
+================================
+## 9-26-18
+================================
+
+### post-list
+- padding changed for mq's
+
+### sign-out
+- set postDisplay to empty string on signout, fix displaying after signout bug
