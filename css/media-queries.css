@@ -46,6 +46,14 @@
 
   }
 
+  /* POST LIST COMPONENT */
+  #sidebar {
+    padding: .5rem;
+    font-size: .8rem
+  }
+  
+
+
 
   #content {
     padding: .5rem;
