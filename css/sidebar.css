@@ -1,6 +1,7 @@
 #sidebar {
   padding: 1rem;
-  font-size: .8rem
+  font-size: .8rem;
+  overflow-y: auto;
 }
 
 #sidebar h2 {

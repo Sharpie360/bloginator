@@ -45,8 +45,6 @@ button {
 
 #header {
   grid-column: 1 / 5;
-  font-size: 2rem;
-  padding-left: 1rem;
 }
 
 #action {
