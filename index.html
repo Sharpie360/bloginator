@@ -83,11 +83,13 @@
           <label for="body">Body: </label>
           <textarea name="body" id="new-post-body" class="new-post-body" v-model="body"></textarea>
         </div>
-        <button id="new-post-save" @click="saveDraft()">save draft</button>
-        <button id="load-saved-draft" @click="loadDraft()">load draft</button>
-        <button id="new-post-commit" @click="commitPost()" v-show="createMode">commit post</button>
-        <button id="update-post" @click="updatePost()" v-show="editMode">update post</button>
-        <button id="new-post-cancel" @click="cancelPost()">cancel</button>
+        <div id="post-btns">
+          <button id="new-post-save" @click="saveDraft()">save draft</button>
+          <button id="load-saved-draft" @click="loadDraft()">load draft</button>
+          <button id="new-post-commit" @click="commitPost()" v-show="createMode">commit post</button>
+          <button id="update-post" @click="updatePost()" v-show="editMode">update post</button>
+          <button id="new-post-cancel" @click="cancelPost()">cancel</button>
+        </div>
       </div>
 
     </div>
