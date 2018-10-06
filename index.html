@@ -149,8 +149,10 @@
     function handleSignOutClick(event) {
       if(confirm('Are you sure you want to log out?')){
         gapi.auth2.getAuthInstance().signOut()
+        // set signed in to signed out
         vm_actionBar.$data.isSignedIn = false
         vm_postList.$data.isSignedIn = false
+        // change content to signed out view
         vm_postCreate.$data.createMode = false
         vm_postCreate.$data.editMode = false
         vm_postDisplay.$data.viewMode = true
@@ -158,6 +160,9 @@
         vm_postDisplay.$data.date = ''
         vm_postDisplay.$data.body = 'built with the power of Vue.js and google\'s api client'
         vm_postList.$data.posts = [] // empty the array of posts on sign-out
+        // re-enable action btns
+        vm_actionBar.$refs.editBtn.disabled = false
+        vm_actionBar.$refs.deleteBtn.disabled = false
       } else {
         return
       }
