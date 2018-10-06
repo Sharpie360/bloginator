@@ -151,6 +151,9 @@
         gapi.auth2.getAuthInstance().signOut()
         vm_actionBar.$data.isSignedIn = false
         vm_postList.$data.isSignedIn = false
+        vm_postCreate.$data.createMode = false
+        vm_postCreate.$data.editMode = false
+        vm_postDisplay.$data.viewMode = true
         vm_postDisplay.$data.title = 'Welcome to Bloginator'
         vm_postDisplay.$data.date = ''
         vm_postDisplay.$data.body = 'built with the power of Vue.js and google\'s api client'
