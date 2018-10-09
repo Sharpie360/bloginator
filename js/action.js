@@ -82,13 +82,8 @@ function parseBody(post){
     const match = text.split(regex)
     if (match != null) {
       // console.log(match)
-      bodyString = match.splice(1, 2).join('')
-      // create ghost dom element
-      let ghost = document.createElement('span')
-      //set ghost html to 
-      ghost.innerHTML = bodyString
-      parsedBody = ghost.textContent
-      return parsedBody
+      bodyString = match.splice(2, 1).join('')
+      return bodyString
     } 
   }
 }
